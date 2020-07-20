@@ -2,4 +2,22 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  h3 Enter the data from your resume below:
+    form(action='/classify', method='POST')
+      p
+        | Experience:
+        br
+        textarea(id='experience', placeholder='Experience from Resume')
+        br
+        br
+        | Skills:
+        br
+        textarea(id='skills', placeholder='Skills from Resume')
+        br
+        br
+        | Projects:
+        br
+        textarea(id='projects', placeholder='Projects from Resume')
+        br
+        br
+        button(class='pure-material-button-contained') Submit
