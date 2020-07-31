@@ -8,10 +8,26 @@ a {
   color: #00B7FF;
 }
 
-textarea {
+#resume {
   font: 14px "Raleway", sans-serif;
   min-width: 500px;
   min-height: 150px;
+  width: 650px;
+  height: 500px;
+}
+
+.flex-parent {
+  display: flex;
+}
+.flex-child {
+  flex: 1;
+}
+
+#result {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 35vh;
 }
 
 .pure-material-button-contained {

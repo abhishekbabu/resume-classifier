@@ -1,23 +1,18 @@
 extends layout
 
 block content
-  h1= title
-  h3 Enter the data from your resume below:
-    form(action='/classify', method='POST')
-      p
-        | Experience:
-        br
-        textarea(id='experience', placeholder='Experience from Resume')
-        br
-        br
-        | Skills:
-        br
-        textarea(id='skills', placeholder='Skills from Resume')
-        br
-        br
-        | Projects:
-        br
-        textarea(id='projects', placeholder='Projects from Resume')
-        br
-        br
-        button(class='pure-material-button-contained') Submit
+  div(class='flex-parent')
+    div(class='flex-child')
+      h1 Resume Screener
+      h3 Enter the data from your resume below:
+      form(action='/', method='POST', id="screener-form")
+        p
+          | Resume:
+          br
+          textarea(form="screener-form", name="resume", id='resume', placeholder='Enter your resume in text form here', required)=resume
+          br
+          br
+          button(class='pure-material-button-contained' type='submit') Submit
+    div(class='flex-child', id='result')
+      h1 Screening Result:
+      h1=result
