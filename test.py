@@ -41,22 +41,18 @@ max_length = 200
 trunc_type = 'post'
 padding_type = 'post'
 
-with open('tokenizer/tokenizer.pickle', 'rb') as handle:
-    tokenizer = pickle.load(handle)
+with open('tokenizer/feature_tokenizer.pickle', 'rb') as handle:
+    feature_tokenizer = pickle.load(handle)
 
-with open('tokenizer/label_tokenizer.pickle', 'rb') as handle:
-    label_tokenizer = pickle.load(handle)
+with open('dictionary/dictionary.pickle', 'rb') as handle:
+    encoding_to_label = pickle.load(handle)
 
-predict_sequences = tokenizer.texts_to_sequences([cleaned_input])
+predict_sequences = feature_tokenizer.texts_to_sequences([cleaned_input])
 predict_padded = pad_sequences(predict_sequences, maxlen=max_length, padding=padding_type, truncating=trunc_type)
 predict_padded = np.array(predict_padded)
 
 model = keras.models.load_model('model')
 prediction = model.predict(predict_padded)
 
-predict_label = label_tokenizer.sequences_to_texts(prediction)
-print(predict_label)
-
-#print(predict_padded)
-#print(cleaned_input)
-#print(prediction)
+encoding = np.argmax(prediction[0])
+print(encoding_to_label[encoding])
