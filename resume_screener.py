@@ -48,16 +48,16 @@ trunc_type = 'post'
 padding_type = 'post'
 
 # Get feature text tokenizer used for model training
-with open('tokenizer/feature_tokenizer.pickle', 'rb') as handle:
+with open('assets/tokenizer/feature_tokenizer.pickle', 'rb') as handle:
     feature_tokenizer = pickle.load(handle)
 
 # Get label encoding dictionary from model training
-with open('dictionary/dictionary.pickle', 'rb') as handle:
+with open('assets/dictionary/dictionary.pickle', 'rb') as handle:
     encoding_to_label = pickle.load(handle)
 
 # Handle unknown label case and load original labels
 encoding_to_label[0] = 'unknown'
-with open("data/labels.json", "r") as read_file:
+with open("assets/data/labels.json", "r") as read_file:
     original_labels = json.load(read_file)
 
 # Convert user input to padded sequence
@@ -66,7 +66,7 @@ predict_padded = pad_sequences(predict_sequences, maxlen=max_length, padding=pad
 predict_padded = np.array(predict_padded)
 
 # Load model and make prediction
-model = keras.models.load_model('model')
+model = keras.models.load_model('assets/model')
 prediction = model.predict(predict_padded)
 
 # Get encodings of top 5 results
