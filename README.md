@@ -11,5 +11,5 @@ In a terminal:
 
 
 ### Neural Network model for resume classification
-- `cd "Neural_network_model_for_resume_classification"
-- `Run .py or .ipynb file "neural_network_codeday_resume_screening"
+-  Go to folder "Neural_network_model_for_resume_classification" `cd Neural_network_model_for_resume_classification`
+- Run .py or .ipynb file "neural_network_codeday_resume_screening" `python neural_network_codeday_resume_screening.py`
