@@ -1,5 +1,5 @@
 # Resume-Screener
-A project for CodeDay Labs that screens resumes based on their fit for a Software Engineer New Grad position
+A project for CodeDay Labs that screens resumes based on their fit for a specific role. 
 
 ### How to run
 In a terminal:
